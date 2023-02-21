@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/BuyMeACoffee.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.7;\n\nerror BuyMeACoffee__TipTooLow();\n\ncontract BuyMeACoffee {\n    address public immutable i_owner;\n    uint256 public constant MINIMUM_TIP_USD = 5;\n\n    struct Tip {\n        uint256 tip;\n        string message;\n    }\n\n    constructor() {\n        i_owner = msg.sender;\n    }\n\n    //functions\n    function buyCoffee() public payable {\n        if (!(msg.value > MINIMUM_TIP_USD)) {\n            revert BuyMeACoffee__TipTooLow();\n        }\n    }\n\n    function withdrawTips() public {\n        require(msg.sender == i_owner, \"Caller is not the owner\");\n        (bool success, ) = payable(i_owner).call{value: address(this).balance}(\n            \"\"\n        );\n        require(success, \"Withdrawal failed\");\n    }\n\n    //getter functions\n    function getOwner() public view returns (address) {\n        return i_owner;\n    }\n\n    function getContractBalance() public view returns (uint256) {\n        return address(this).balance;\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
