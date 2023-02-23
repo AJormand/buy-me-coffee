@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/BuyMeACoffee.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.7;\n\nerror BuyMeACoffee__TipTooLow();\n\ncontract BuyMeACoffee {\n    address public immutable i_owner;\n    uint256 public constant MINIMUM_TIP_USD = 5;\n    Tip[] internal s_tipsArray;\n    uint256 public s_numberOfTips;\n\n    struct Tip {\n        uint256 tip;\n        string message;\n    }\n\n    //events\n    event TipReceived(uint256 _tip, string _message, address _from);\n\n    constructor() {\n        i_owner = msg.sender;\n    }\n\n    //functions\n    function buyCoffee(string memory _message) public payable {\n        if (!(msg.value > MINIMUM_TIP_USD)) {\n            revert BuyMeACoffee__TipTooLow();\n        }\n        Tip memory newTip;\n        newTip.tip = msg.value;\n        newTip.message = _message;\n        s_tipsArray.push(newTip);\n        s_numberOfTips++;\n\n        emit TipReceived(msg.value, _message, msg.sender);\n    }\n\n    function withdrawTips() public {\n        require(msg.sender == i_owner, \"Caller is not the owner\");\n        (bool success, ) = payable(i_owner).call{value: address(this).balance}(\n            \"\"\n        );\n        require(success, \"Withdrawal failed\");\n    }\n\n    //getter functions\n    function getOwner() public view returns (address) {\n        return i_owner;\n    }\n\n    function getContractBalance() public view returns (uint256) {\n        return address(this).balance;\n    }\n\n    function getTip(uint256 _index) public view returns (Tip memory) {\n        return s_tipsArray[_index];\n    }\n\n    function getLatestFiveTips() public view returns (Tip[] memory) {\n        Tip[] memory items = new Tip[](5);\n\n        uint256 startIndex = s_numberOfTips > 5 ? s_numberOfTips - 5 : 0;\n        for (uint256 i = 0; i < 5; i++) {\n            if (startIndex + i >= s_numberOfTips) {\n                break;\n            }\n            items[i] = s_tipsArray[startIndex + i];\n        }\n        return items;\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

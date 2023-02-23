@@ -26,18 +26,26 @@ const { developmentChains } = require("../../helper-hardhad-config");
         it("Should revert if tip is too low", async () => {
           const minAmount = (await buyMeACoffee.MINIMUM_TIP_USD()).toString();
           const tip = ethers.utils.parseEther("1");
+          const message = "Hi!";
           expect(
-            await buyMeACoffee.buyCoffee({ value: tip })
+            await buyMeACoffee.buyCoffee(message, { value: tip })
           ).to.be.revertedWith("BuyMeACoffee__TipTooLow()");
         });
-
         it("Should send tip to the contract", async () => {
           const tip = ethers.utils.parseUnits("6", "ether");
-          await buyMeACoffee.buyCoffee({ value: tip });
+          const message = "Hi!";
+          await buyMeACoffee.buyCoffee(message, { value: tip });
           const contractBalance = (
             await buyMeACoffee.getContractBalance()
           ).toString();
           assert.equal(contractBalance, tip);
+        });
+        it("Should emit TipReceived event when tip is sent", async () => {
+          const tip = ethers.utils.parseUnits("6", "ether");
+          const message = "Good work!";
+          await expect(buyMeACoffee.buyCoffee(message, { value: tip }))
+            .to.emit(buyMeACoffee, "TipReceived")
+            .withArgs(tip, message, deployer.address);
         });
       });
 
@@ -51,10 +59,46 @@ const { developmentChains } = require("../../helper-hardhad-config");
 
         it("Should withdraw all the funds from the contract", async () => {
           const tip = ethers.utils.parseUnits("6", "ether");
-          await buyMeACoffee.buyCoffee({ value: tip });
+          const message = "Hi!";
+          await buyMeACoffee.buyCoffee(message, { value: tip });
           await buyMeACoffee.withdrawTips();
           const contractBalance = await buyMeACoffee.getContractBalance();
           assert.equal(contractBalance, "0");
+        });
+      });
+
+      describe("getLastFiveTips", function () {
+        it("Should return an array of last 5 tips", async () => {
+          const expectedArray = [
+            ["6000000000000000000", "Hello1"],
+            ["6000000000000000000", "Hello2"],
+            ["6000000000000000000", "Hello3"],
+            ["6000000000000000000", "Hello4"],
+            ["6000000000000000000", "Hello5"],
+            ["6000000000000000000", "Hello6"],
+            ["6000000000000000000", "Hello7"],
+            ["6000000000000000000", "Hello8"],
+            ["6000000000000000000", "Hello9"],
+          ];
+
+          for (let i = 0; i < expectedArray.length; i++) {
+            await buyMeACoffee.buyCoffee(expectedArray[i][1], {
+              value: expectedArray[i][0],
+            });
+          }
+          const tipsArr = await buyMeACoffee.getLatestFiveTips();
+
+          const readableTipsArr = tipsArr.map((item) => {
+            return item.map((value) => {
+              if (typeof value === "object" && value._isBigNumber) {
+                return value.toString();
+              } else {
+                return value;
+              }
+            });
+          });
+
+          expect(expectedArray.slice(-5)).to.eql(readableTipsArr);
         });
       });
     });
