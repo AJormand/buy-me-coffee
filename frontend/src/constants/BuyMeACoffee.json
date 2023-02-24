@@ -1,1 +1,659 @@
-{"fragments":[{"name":null,"type":"constructor","inputs":[],"payable":false,"stateMutability":"nonpayable","gas":null,"_isFragment":true},{"type":"error","name":"BuyMeACoffee__TipTooLow","inputs":[],"_isFragment":true},{"name":"TipReceived","anonymous":false,"inputs":[{"name":"_tip","type":"uint256","indexed":false,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true},{"name":"_message","type":"string","indexed":false,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"string","_isParamType":true},{"name":"_from","type":"address","indexed":false,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"address","_isParamType":true}],"type":"event","_isFragment":true},{"type":"function","name":"MINIMUM_TIP_USD","constant":true,"inputs":[],"outputs":[{"name":null,"type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},{"type":"function","name":"buyCoffee","constant":false,"inputs":[{"name":"_message","type":"string","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"string","_isParamType":true}],"outputs":[],"payable":true,"stateMutability":"payable","gas":null,"_isFragment":true},{"type":"function","name":"getContractBalance","constant":true,"inputs":[],"outputs":[{"name":null,"type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},{"type":"function","name":"getLatestFiveTips","constant":true,"inputs":[],"outputs":[{"name":null,"type":"tuple[]","indexed":null,"components":[{"name":"tip","type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true},{"name":"message","type":"string","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"string","_isParamType":true}],"arrayLength":-1,"arrayChildren":{"name":null,"type":"tuple","indexed":null,"components":[{"name":"tip","type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true},{"name":"message","type":"string","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"string","_isParamType":true}],"arrayLength":null,"arrayChildren":null,"baseType":"tuple","_isParamType":true},"baseType":"array","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},{"type":"function","name":"getOwner","constant":true,"inputs":[],"outputs":[{"name":null,"type":"address","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"address","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},{"type":"function","name":"getTip","constant":true,"inputs":[{"name":"_index","type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true}],"outputs":[{"name":null,"type":"tuple","indexed":null,"components":[{"name":"tip","type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true},{"name":"message","type":"string","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"string","_isParamType":true}],"arrayLength":null,"arrayChildren":null,"baseType":"tuple","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},{"type":"function","name":"i_owner","constant":true,"inputs":[],"outputs":[{"name":null,"type":"address","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"address","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},{"type":"function","name":"s_numberOfTips","constant":true,"inputs":[],"outputs":[{"name":null,"type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},{"type":"function","name":"withdrawTips","constant":false,"inputs":[],"outputs":[],"payable":false,"stateMutability":"nonpayable","gas":null,"_isFragment":true}],"_abiCoder":{"coerceFunc":null},"functions":{"MINIMUM_TIP_USD()":{"type":"function","name":"MINIMUM_TIP_USD","constant":true,"inputs":[],"outputs":[{"name":null,"type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},"buyCoffee(string)":{"type":"function","name":"buyCoffee","constant":false,"inputs":[{"name":"_message","type":"string","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"string","_isParamType":true}],"outputs":[],"payable":true,"stateMutability":"payable","gas":null,"_isFragment":true},"getContractBalance()":{"type":"function","name":"getContractBalance","constant":true,"inputs":[],"outputs":[{"name":null,"type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},"getLatestFiveTips()":{"type":"function","name":"getLatestFiveTips","constant":true,"inputs":[],"outputs":[{"name":null,"type":"tuple[]","indexed":null,"components":[{"name":"tip","type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true},{"name":"message","type":"string","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"string","_isParamType":true}],"arrayLength":-1,"arrayChildren":{"name":null,"type":"tuple","indexed":null,"components":[{"name":"tip","type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true},{"name":"message","type":"string","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"string","_isParamType":true}],"arrayLength":null,"arrayChildren":null,"baseType":"tuple","_isParamType":true},"baseType":"array","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},"getOwner()":{"type":"function","name":"getOwner","constant":true,"inputs":[],"outputs":[{"name":null,"type":"address","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"address","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},"getTip(uint256)":{"type":"function","name":"getTip","constant":true,"inputs":[{"name":"_index","type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true}],"outputs":[{"name":null,"type":"tuple","indexed":null,"components":[{"name":"tip","type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true},{"name":"message","type":"string","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"string","_isParamType":true}],"arrayLength":null,"arrayChildren":null,"baseType":"tuple","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},"i_owner()":{"type":"function","name":"i_owner","constant":true,"inputs":[],"outputs":[{"name":null,"type":"address","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"address","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},"s_numberOfTips()":{"type":"function","name":"s_numberOfTips","constant":true,"inputs":[],"outputs":[{"name":null,"type":"uint256","indexed":null,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true}],"payable":false,"stateMutability":"view","gas":null,"_isFragment":true},"withdrawTips()":{"type":"function","name":"withdrawTips","constant":false,"inputs":[],"outputs":[],"payable":false,"stateMutability":"nonpayable","gas":null,"_isFragment":true}},"errors":{"BuyMeACoffee__TipTooLow()":{"type":"error","name":"BuyMeACoffee__TipTooLow","inputs":[],"_isFragment":true}},"events":{"TipReceived(uint256,string,address)":{"name":"TipReceived","anonymous":false,"inputs":[{"name":"_tip","type":"uint256","indexed":false,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"uint256","_isParamType":true},{"name":"_message","type":"string","indexed":false,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"string","_isParamType":true},{"name":"_from","type":"address","indexed":false,"components":null,"arrayLength":null,"arrayChildren":null,"baseType":"address","_isParamType":true}],"type":"event","_isFragment":true}},"structs":{},"deploy":{"name":null,"type":"constructor","inputs":[],"payable":false,"stateMutability":"nonpayable","gas":null,"_isFragment":true},"_isInterface":true}
+{
+  "fragments": [
+    {
+      "name": null,
+      "type": "constructor",
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "gas": null,
+      "_isFragment": true
+    },
+    {
+      "type": "error",
+      "name": "BuyMeACoffee__TipTooLow",
+      "inputs": [],
+      "_isFragment": true
+    },
+    {
+      "name": "TipReceived",
+      "anonymous": false,
+      "inputs": [
+        {
+          "name": "_tip",
+          "type": "uint256",
+          "indexed": false,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "uint256",
+          "_isParamType": true
+        },
+        {
+          "name": "_message",
+          "type": "string",
+          "indexed": false,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "string",
+          "_isParamType": true
+        },
+        {
+          "name": "_from",
+          "type": "address",
+          "indexed": false,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "address",
+          "_isParamType": true
+        }
+      ],
+      "type": "event",
+      "_isFragment": true
+    },
+    {
+      "type": "function",
+      "name": "MINIMUM_TIP_USD",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "uint256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "uint256",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    {
+      "type": "function",
+      "name": "buyCoffee",
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_message",
+          "type": "string",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "string",
+          "_isParamType": true
+        }
+      ],
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "gas": null,
+      "_isFragment": true
+    },
+    {
+      "type": "function",
+      "name": "getContractBalance",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "uint256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "uint256",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    {
+      "type": "function",
+      "name": "getLatestFiveTips",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "tuple[]",
+          "indexed": null,
+          "components": [
+            {
+              "name": "tip",
+              "type": "uint256",
+              "indexed": null,
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null,
+              "baseType": "uint256",
+              "_isParamType": true
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "indexed": null,
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null,
+              "baseType": "string",
+              "_isParamType": true
+            }
+          ],
+          "arrayLength": -1,
+          "arrayChildren": {
+            "name": null,
+            "type": "tuple",
+            "indexed": null,
+            "components": [
+              {
+                "name": "tip",
+                "type": "uint256",
+                "indexed": null,
+                "components": null,
+                "arrayLength": null,
+                "arrayChildren": null,
+                "baseType": "uint256",
+                "_isParamType": true
+              },
+              {
+                "name": "message",
+                "type": "string",
+                "indexed": null,
+                "components": null,
+                "arrayLength": null,
+                "arrayChildren": null,
+                "baseType": "string",
+                "_isParamType": true
+              }
+            ],
+            "arrayLength": null,
+            "arrayChildren": null,
+            "baseType": "tuple",
+            "_isParamType": true
+          },
+          "baseType": "array",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    {
+      "type": "function",
+      "name": "getOwner",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "address",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "address",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    {
+      "type": "function",
+      "name": "getTip",
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_index",
+          "type": "uint256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "uint256",
+          "_isParamType": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": null,
+          "type": "tuple",
+          "indexed": null,
+          "components": [
+            {
+              "name": "tip",
+              "type": "uint256",
+              "indexed": null,
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null,
+              "baseType": "uint256",
+              "_isParamType": true
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "indexed": null,
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null,
+              "baseType": "string",
+              "_isParamType": true
+            }
+          ],
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "tuple",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    {
+      "type": "function",
+      "name": "i_owner",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "address",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "address",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    {
+      "type": "function",
+      "name": "s_numberOfTips",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "uint256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "uint256",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    {
+      "type": "function",
+      "name": "withdrawTips",
+      "constant": false,
+      "inputs": [],
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "gas": null,
+      "_isFragment": true
+    }
+  ],
+  "_abiCoder": { "coerceFunc": null },
+  "functions": {
+    "MINIMUM_TIP_USD()": {
+      "type": "function",
+      "name": "MINIMUM_TIP_USD",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "uint256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "uint256",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    "buyCoffee(string)": {
+      "type": "function",
+      "name": "buyCoffee",
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_message",
+          "type": "string",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "string",
+          "_isParamType": true
+        }
+      ],
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "gas": null,
+      "_isFragment": true
+    },
+    "getContractBalance()": {
+      "type": "function",
+      "name": "getContractBalance",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "uint256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "uint256",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    "getLatestFiveTips()": {
+      "type": "function",
+      "name": "getLatestFiveTips",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "tuple[]",
+          "indexed": null,
+          "components": [
+            {
+              "name": "tip",
+              "type": "uint256",
+              "indexed": null,
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null,
+              "baseType": "uint256",
+              "_isParamType": true
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "indexed": null,
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null,
+              "baseType": "string",
+              "_isParamType": true
+            }
+          ],
+          "arrayLength": -1,
+          "arrayChildren": {
+            "name": null,
+            "type": "tuple",
+            "indexed": null,
+            "components": [
+              {
+                "name": "tip",
+                "type": "uint256",
+                "indexed": null,
+                "components": null,
+                "arrayLength": null,
+                "arrayChildren": null,
+                "baseType": "uint256",
+                "_isParamType": true
+              },
+              {
+                "name": "message",
+                "type": "string",
+                "indexed": null,
+                "components": null,
+                "arrayLength": null,
+                "arrayChildren": null,
+                "baseType": "string",
+                "_isParamType": true
+              }
+            ],
+            "arrayLength": null,
+            "arrayChildren": null,
+            "baseType": "tuple",
+            "_isParamType": true
+          },
+          "baseType": "array",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    "getOwner()": {
+      "type": "function",
+      "name": "getOwner",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "address",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "address",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    "getTip(uint256)": {
+      "type": "function",
+      "name": "getTip",
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_index",
+          "type": "uint256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "uint256",
+          "_isParamType": true
+        }
+      ],
+      "outputs": [
+        {
+          "name": null,
+          "type": "tuple",
+          "indexed": null,
+          "components": [
+            {
+              "name": "tip",
+              "type": "uint256",
+              "indexed": null,
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null,
+              "baseType": "uint256",
+              "_isParamType": true
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "indexed": null,
+              "components": null,
+              "arrayLength": null,
+              "arrayChildren": null,
+              "baseType": "string",
+              "_isParamType": true
+            }
+          ],
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "tuple",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    "i_owner()": {
+      "type": "function",
+      "name": "i_owner",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "address",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "address",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    "s_numberOfTips()": {
+      "type": "function",
+      "name": "s_numberOfTips",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "uint256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "uint256",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": null,
+      "_isFragment": true
+    },
+    "withdrawTips()": {
+      "type": "function",
+      "name": "withdrawTips",
+      "constant": false,
+      "inputs": [],
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "gas": null,
+      "_isFragment": true
+    }
+  },
+  "errors": {
+    "BuyMeACoffee__TipTooLow()": {
+      "type": "error",
+      "name": "BuyMeACoffee__TipTooLow",
+      "inputs": [],
+      "_isFragment": true
+    }
+  },
+  "events": {
+    "TipReceived(uint256,string,address)": {
+      "name": "TipReceived",
+      "anonymous": false,
+      "inputs": [
+        {
+          "name": "_tip",
+          "type": "uint256",
+          "indexed": false,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "uint256",
+          "_isParamType": true
+        },
+        {
+          "name": "_message",
+          "type": "string",
+          "indexed": false,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "string",
+          "_isParamType": true
+        },
+        {
+          "name": "_from",
+          "type": "address",
+          "indexed": false,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "address",
+          "_isParamType": true
+        }
+      ],
+      "type": "event",
+      "_isFragment": true
+    }
+  },
+  "structs": {},
+  "deploy": {
+    "name": null,
+    "type": "constructor",
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "gas": null,
+    "_isFragment": true
+  },
+  "_isInterface": true
+}
