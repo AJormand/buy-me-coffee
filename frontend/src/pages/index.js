@@ -2,8 +2,10 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import Image from "next/image";
 import { parseEther, Contract, BrowserProvider } from "ethers";
+import { useState, useEffect } from "react";
 
 import Navbar from "@/components/Navbar";
+import TipCard from "@/components/TipCard";
 
 import buyMeACoffeeAbi from "../constants/BuyMeACoffee.json";
 import buyMeACoffeeAddresses from "../constants/networkMapping.json";
@@ -11,6 +13,13 @@ import buyMeACoffeeAddresses from "../constants/networkMapping.json";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [tips, setTips] = useState([]);
+
+  useEffect(() => {
+    //fetchTips();
+    console.log(tips);
+  }, [tips]);
+
   const buyCoffee = async (amount) => {
     const browserProvider = new BrowserProvider(window.ethereum);
     const signer = await browserProvider.getSigner();
@@ -30,6 +39,39 @@ export default function Home() {
     });
   };
 
+  const fetchTips = async () => {
+    const browserProvider = new BrowserProvider(window.ethereum);
+    const network = await browserProvider.getNetwork();
+    const buyMeACoffeeContract = new Contract(
+      buyMeACoffeeAddresses[network.chainId.toString()][0],
+      buyMeACoffeeAbi.fragments,
+      browserProvider
+    );
+
+    const fethchedTips = await buyMeACoffeeContract.getLatestFiveTips();
+    const tipsArr = fethchedTips.map((tip) => {
+      return { tip: tip[0], message: tip[1] };
+    });
+
+    console.log(tipsArr);
+    setTips(tipsArr);
+
+    // fethchedTips.map((tip) => {
+    //   console.log(tip[0]);
+    //   setTips((prev) => [
+    //     ...prev,
+    //     {
+    //       tip: tip[0],
+    //       message: tip[1],
+    //     },
+    //   ]);
+    // });
+
+    //setTips(fethchedTips);
+    console.log(tips);
+    console.log(tips);
+  };
+
   return (
     <>
       <Head>
@@ -41,31 +83,45 @@ export default function Home() {
       <main className="">
         <Navbar />
         <div className="w-full flex justify-center">
-          <div className="flex w-[70%] items-center justify-center mt-20 bg-slate-100 p-10 rounded-md">
-            <div className="flex-1 flex items-center justify-center">
-              <div className="rounded-xl object-contain overflow-hidden">
-                <Image
-                  src="/coffee.jpg"
-                  alt="coffee"
-                  width="400"
-                  height="400"
-                />
+          <div className="flex flex-col w-[70%] items-center justify-center mt-20 bg-slate-100 p-10 rounded-md">
+            <div className="flex">
+              <div className="flex-1 flex items-center justify-center">
+                <div className="rounded-xl object-contain overflow-hidden">
+                  <Image
+                    src="/coffee.jpg"
+                    alt="coffee"
+                    width="400"
+                    height="400"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-1 flex-col items-center justify-center gap-5">
+                <button
+                  className="w-[200px] bg-cyan-600 rounded-full text-white font-bold p-2 hover:bg-cyan-500"
+                  onClick={buyCoffee}
+                >
+                  5 eur
+                </button>
+                <button
+                  className="w-[200px] bg-cyan-600 rounded-full text-white font-bold p-2 hover:bg-cyan-500"
+                  onClick={fetchTips}
+                >
+                  10 eur
+                </button>
+                <button className="w-[200px] bg-cyan-600 rounded-full text-white font-bold p-2 hover:bg-cyan-500">
+                  15 eur
+                </button>
               </div>
             </div>
 
-            <div className="flex flex-1 flex-col items-center justify-center gap-5">
-              <button
-                className="w-[200px] bg-cyan-600 rounded-full text-white font-bold p-2 hover:bg-cyan-500"
-                onClick={buyCoffee}
-              >
-                5 eur
-              </button>
-              <button className="w-[200px] bg-cyan-600 rounded-full text-white font-bold p-2 hover:bg-cyan-500">
-                10 eur
-              </button>
-              <button className="w-[200px] bg-cyan-600 rounded-full text-white font-bold p-2 hover:bg-cyan-500">
-                15 eur
-              </button>
+            <div>
+              {tips?.map((tip, index) => (
+                <div key={index}>
+                  <div>{tip.tip}</div>
+                  <div>{tip.message}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
