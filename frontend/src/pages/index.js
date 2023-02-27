@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import Image from "next/image";
-import { parseEther, Contract, BrowserProvider } from "ethers";
+import { parseEther, formatEther, Contract, BrowserProvider } from "ethers";
 import { useState, useEffect } from "react";
 
 import Navbar from "@/components/Navbar";
@@ -14,13 +14,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [tips, setTips] = useState([]);
+  const [tipMessage, setTipMessage] = useState("");
 
   useEffect(() => {
-    //fetchTips();
-    console.log(tips);
-  }, [tips]);
+    fetchTips();
+  }, []);
 
-  const buyCoffee = async (amount) => {
+  const buyCoffee = async (amount, message) => {
     const browserProvider = new BrowserProvider(window.ethereum);
     const signer = await browserProvider.getSigner();
     const network = await browserProvider.getNetwork();
@@ -34,8 +34,8 @@ export default function Home() {
       signer
     );
 
-    const tx = await buyMeACoffeeContract.buyCoffee("ss", {
-      value: parseEther("0.0001"),
+    const tx = await buyMeACoffeeContract.buyCoffee(message, {
+      value: parseEther(amount.toString()),
     });
   };
 
@@ -49,27 +49,28 @@ export default function Home() {
     );
 
     const fethchedTips = await buyMeACoffeeContract.getLatestFiveTips();
-    const tipsArr = fethchedTips.map((tip) => {
-      return { tip: tip[0], message: tip[1] };
-    });
-
-    console.log(tipsArr);
+    const tipsArr = fethchedTips
+      .map((tip) => {
+        return { tip: formatEther(tip[0]), message: tip[1] };
+      })
+      .filter((element) => {
+        return element.tip != "0.0";
+      });
     setTips(tipsArr);
 
-    // fethchedTips.map((tip) => {
-    //   console.log(tip[0]);
-    //   setTips((prev) => [
-    //     ...prev,
-    //     {
-    //       tip: tip[0],
-    //       message: tip[1],
-    //     },
-    //   ]);
-    // });
-
-    //setTips(fethchedTips);
-    console.log(tips);
-    console.log(tips);
+    // fethchedTips
+    //   .filter((tip) => {
+    //     return tip[0] != 0n; //removes blank elements from array
+    //   })
+    //   .map((tip) => {
+    //     setTips((prev) => [
+    //       ...prev,
+    //       {
+    //         tip: formatEther(tip[0]),
+    //         message: tip[1],
+    //       },
+    //     ]);
+    //   });
   };
 
   return (
@@ -99,28 +100,35 @@ export default function Home() {
               <div className="flex flex-1 flex-col items-center justify-center gap-5">
                 <button
                   className="w-[200px] bg-cyan-600 rounded-full text-white font-bold p-2 hover:bg-cyan-500"
-                  onClick={buyCoffee}
+                  onClick={() => buyCoffee("0.0001", tipMessage)}
                 >
                   5 eur
                 </button>
                 <button
                   className="w-[200px] bg-cyan-600 rounded-full text-white font-bold p-2 hover:bg-cyan-500"
-                  onClick={fetchTips}
+                  onClick={() => buyCoffee("0.0005", tipMessage)}
                 >
                   10 eur
                 </button>
-                <button className="w-[200px] bg-cyan-600 rounded-full text-white font-bold p-2 hover:bg-cyan-500">
+                <button
+                  className="w-[200px] bg-cyan-600 rounded-full text-white font-bold p-2 hover:bg-cyan-500"
+                  onClick={() => buyCoffee("0.001", tipMessage)}
+                >
                   15 eur
                 </button>
               </div>
+
+              <textarea
+                placeholder="Type tip message here"
+                value={tipMessage}
+                onChange={(e) => setTipMessage(e.target.value)}
+                className="p-3"
+              ></textarea>
             </div>
 
-            <div>
-              {tips?.map((tip, index) => (
-                <div key={index}>
-                  <div>{tip.tip}</div>
-                  <div>{tip.message}</div>
-                </div>
+            <div className="flex flex-wrap gap-5 mt-20 w-full justify-center">
+              {tips.map((tip, index) => (
+                <TipCard tip={tip} key={index} />
               ))}
             </div>
           </div>
