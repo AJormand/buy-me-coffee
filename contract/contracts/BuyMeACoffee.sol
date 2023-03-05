@@ -1,9 +1,12 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.7;
 
+import "../contracts/PriceConsumer.sol";
+
 error BuyMeACoffee__TipTooLow();
 
 contract BuyMeACoffee {
+    PriceConsumer priceConsumer;
     address public immutable i_owner;
     uint256 public constant MINIMUM_TIP_USD = 5;
     Tip[] internal s_tipsArray;
@@ -17,8 +20,9 @@ contract BuyMeACoffee {
     //events
     event TipReceived(uint256 _tip, string _message, address _from);
 
-    constructor() {
+    constructor(address _priceConsumerAddress) {
         i_owner = msg.sender;
+        priceConsumer = new PriceConsumer(_priceConsumerAddress);
     }
 
     //functions
@@ -67,5 +71,10 @@ contract BuyMeACoffee {
             items[i] = s_tipsArray[startIndex + i];
         }
         return items;
+    }
+
+    function getEthPrice() public view returns (int) {
+        int price = priceConsumer.getLatestPrice();
+        return price;
     }
 }
