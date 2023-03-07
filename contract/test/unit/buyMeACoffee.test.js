@@ -32,12 +32,15 @@ const { developmentChains } = require("../../helper-hardhad-config");
           ).to.be.revertedWith("BuyMeACoffee__TipTooLow()");
         });
         it("Should send tip to the contract", async () => {
-          const tip = ethers.utils.parseUnits("6", "ether");
+          const tip = ethers.utils.parseEther("7");
           const message = "Hi!";
-          await buyMeACoffee.buyCoffee(message, { value: tip });
-          const contractBalance = (
-            await buyMeACoffee.getContractBalance()
-          ).toString();
+          const tx = await buyMeACoffee.buyCoffee(message, { value: tip });
+          await tx.wait();
+          const contractBalance = await buyMeACoffee.getContractBalance();
+
+          console.log(tip.toString());
+          console.log(contractBalance.toString());
+
           assert.equal(contractBalance, tip);
         });
         it("Should emit TipReceived event when tip is sent", async () => {

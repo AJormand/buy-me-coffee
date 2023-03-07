@@ -3,7 +3,18 @@
     {
       "name": null,
       "type": "constructor",
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "_priceFeedAddress",
+          "type": "address",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "address",
+          "_isParamType": true
+        }
+      ],
       "payable": false,
       "stateMutability": "nonpayable",
       "gas": null,
@@ -72,7 +83,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     {
@@ -94,7 +105,7 @@
       "outputs": [],
       "payable": true,
       "stateMutability": "payable",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     {
@@ -116,7 +127,29 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
+      "_isFragment": true
+    },
+    {
+      "type": "function",
+      "name": "getEthPrice",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "int256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "int256",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     {
@@ -189,7 +222,29 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
+      "_isFragment": true
+    },
+    {
+      "type": "function",
+      "name": "getLatestPrice",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "int256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "int256",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     {
@@ -211,7 +266,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     {
@@ -265,7 +320,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     {
@@ -287,7 +342,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     {
@@ -309,7 +364,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     {
@@ -320,7 +375,7 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     }
   ],
@@ -345,7 +400,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     "buyCoffee(string)": {
@@ -367,7 +422,7 @@
       "outputs": [],
       "payable": true,
       "stateMutability": "payable",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     "getContractBalance()": {
@@ -389,7 +444,29 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
+      "_isFragment": true
+    },
+    "getEthPrice()": {
+      "type": "function",
+      "name": "getEthPrice",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "int256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "int256",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     "getLatestFiveTips()": {
@@ -462,7 +539,29 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
+      "_isFragment": true
+    },
+    "getLatestPrice()": {
+      "type": "function",
+      "name": "getLatestPrice",
+      "constant": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": null,
+          "type": "int256",
+          "indexed": null,
+          "components": null,
+          "arrayLength": null,
+          "arrayChildren": null,
+          "baseType": "int256",
+          "_isParamType": true
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     "getOwner()": {
@@ -484,7 +583,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     "getTip(uint256)": {
@@ -538,7 +637,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     "i_owner()": {
@@ -560,7 +659,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     "s_numberOfTips()": {
@@ -582,7 +681,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     },
     "withdrawTips()": {
@@ -593,7 +692,7 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "gas": null,
+      "gas": { "type": "BigNumber", "hex": "0x01ba8140" },
       "_isFragment": true
     }
   },
@@ -649,7 +748,18 @@
   "deploy": {
     "name": null,
     "type": "constructor",
-    "inputs": [],
+    "inputs": [
+      {
+        "name": "_priceFeedAddress",
+        "type": "address",
+        "indexed": null,
+        "components": null,
+        "arrayLength": null,
+        "arrayChildren": null,
+        "baseType": "address",
+        "_isParamType": true
+      }
+    ],
     "payable": false,
     "stateMutability": "nonpayable",
     "gas": null,
